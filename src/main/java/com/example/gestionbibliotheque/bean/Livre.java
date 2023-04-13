@@ -15,7 +15,7 @@ public class Livre {
     private String titre;
     private String branche;
     private Boolean availabilityStatus;
-
+    private String imagesrc;
     @ManyToOne
     private FournisseurLivre fournisseurLivre;
 
@@ -124,5 +124,13 @@ public class Livre {
 
     public void setDatePublication(LocalDateTime datePublication) {
         this.datePublication = datePublication;
+    }
+
+    public String getImagesrc() {
+        return imagesrc;
+    }
+
+    public void setImagesrc(String imagesrc) {
+        this.imagesrc = imagesrc;
     }
 }

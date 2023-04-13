@@ -14,8 +14,7 @@ public class Penalite {
     private String reference;
     @ManyToOne
     private Utilisateur utilisateur;
-    @ManyToOne
-    private Livre livre;
+
 
     public Long getId() {
         return id;
@@ -57,11 +56,5 @@ public class Penalite {
         this.utilisateur = utilisateur;
     }
 
-    public Livre getLivre() {
-        return livre;
-    }
 
-    public void setLivre(Livre livre) {
-        this.livre = livre;
-    }
 }
