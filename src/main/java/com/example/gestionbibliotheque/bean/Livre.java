@@ -27,8 +27,18 @@ public class Livre {
 
     @ManyToOne
     private Reception reception;
+    @ManyToOne
+    private Utilisateur utilisateur;
 
     private LocalDateTime datePublication;
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
 
     public long getId() {
         return id;

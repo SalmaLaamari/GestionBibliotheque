@@ -9,7 +9,6 @@ public class Penalite {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Double montant;
     private LocalDateTime datePenalite;
     private String reference;
     @ManyToOne
@@ -22,14 +21,6 @@ public class Penalite {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Double getMontant() {
-        return montant;
-    }
-
-    public void setMontant(Double montant) {
-        this.montant = montant;
     }
 
     public LocalDateTime getDatePenalite() {

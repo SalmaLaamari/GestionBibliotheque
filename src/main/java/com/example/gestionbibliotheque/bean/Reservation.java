@@ -14,6 +14,24 @@ public class Reservation {
     private String reference;
     @ManyToOne
     private Livre livre;
+    @ManyToOne
+    private Utilisateur utilisateur;
+
+    public Livre getLivre() {
+        return livre;
+    }
+
+    public void setLivre(Livre livre) {
+        this.livre = livre;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
 
     public Long getId() {
         return id;
