@@ -11,7 +11,6 @@ import java.util.List;
 @Repository
 public interface LivreDao extends JpaRepository<Livre,Long> {
     Livre findByReference(String reference);
-    Livre findByBookname(String bookname);
     Livre findByAuteur(String auteur);
     Livre findByTitre(String titre);
     List<Livre> findByBranche(String branche);

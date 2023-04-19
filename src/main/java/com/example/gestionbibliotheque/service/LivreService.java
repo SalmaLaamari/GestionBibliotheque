@@ -20,10 +20,6 @@ public class LivreService {
         return livreDao.findByReference(reference);
     }
 
-    public Livre findByBookname(String bookname) {
-        return livreDao.findByBookname(bookname);
-    }
-
     public Livre findByAuteur(String auteur) {
         return livreDao.findByAuteur(auteur);
     }
@@ -60,8 +56,12 @@ public class LivreService {
             return -1;
         }else if (findByReference(livre.getReference())!=null){
             return -2;
-        } else if (livre.getBookname()==null) {
+        } else if (livre.getTitre()==null) {
             return -3;
+        }else if (livre.getAuteur()==null) {
+            return -4;
+        }else if (livre.getBranche()==null) {
+            return -4;
         }else {
             livre.setFournisseurLivre(livre.getFournisseurLivre());
             livre.setLibrairie(livre.getLibrairie());

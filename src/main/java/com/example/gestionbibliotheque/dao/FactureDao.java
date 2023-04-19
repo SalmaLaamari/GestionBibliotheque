@@ -9,9 +9,9 @@ import java.util.List;
 public interface FactureDao extends JpaRepository<Facture,Long> {
     Facture findByReference(String reference);
    List<Facture>  findByFournisseurLivreReference(String reference);
-   List<Facture> findByTotal(Long total);
-   List<Facture> findByTotalGreaterThan(Long total);
-   List<Facture> findByTotalLessThan(Long total);
+   List<Facture> findByTotal(double total);
+   List<Facture> findByTotalGreaterThan(double total);
+   List<Facture> findByTotalLessThan(double total);
    List<Facture> findByPaiementReference(String reference);
    int deleteByReference(String reference);
 

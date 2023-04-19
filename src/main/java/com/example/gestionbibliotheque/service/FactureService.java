@@ -24,15 +24,15 @@ public class FactureService {
         return factureDao.findByFournisseurLivreReference(reference);
     }
 
-    public List<Facture> findByTotal(Long total) {
+    public List<Facture> findByTotal(double total) {
         return factureDao.findByTotal(total);
     }
 
-    public List<Facture> findByTotalGreaterThan(Long total) {
+    public List<Facture> findByTotalGreaterThan(double total) {
         return factureDao.findByTotalGreaterThan(total);
     }
 
-    public List<Facture> findByTotalLessThan(Long total) {
+    public List<Facture> findByTotalLessThan(double total) {
         return factureDao.findByTotalLessThan(total);
     }
 

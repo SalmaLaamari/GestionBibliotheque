@@ -40,6 +40,10 @@ public class LibrairieBrancheService {
             return -2;
         } else if (librairieBranche.getName()==null ) {
             return -3;
+        } else if (librairieBranche.getEmail()==null ) {
+            return -4;
+        } else if (librairieBranche.getDescription()==null ) {
+            return -5;
         }else {
             librairieBranche.setLibrairie(librairieBranche.getLibrairie());
             librairieBranche.setReference("LibrairieBranch-"+librairieBranche.getId());

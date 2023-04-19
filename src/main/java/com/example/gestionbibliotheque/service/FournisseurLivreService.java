@@ -50,8 +50,10 @@ public class FournisseurLivreService {
             return -1;
         } else if (fournisseurLivre.getNom()==null && fournisseurLivre.getPrenom()==null) {
             return -2;
-        } else if (findByReference(fournisseurLivre.getReference())!=null) {
+        }else if (fournisseurLivre.getEmail()==null) {
             return -3;
+        } else if (findByReference(fournisseurLivre.getReference())!=null) {
+            return -4;
         }else {
             fournisseurLivre.setReference("Fournisseur-"+fournisseurLivre.getId());
             fournisseurLivreDao.save(fournisseurLivre);

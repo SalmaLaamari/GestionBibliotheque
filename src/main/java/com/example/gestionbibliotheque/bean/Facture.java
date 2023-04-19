@@ -10,7 +10,7 @@ public class Facture {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String reference;
-    private long total;
+    private double total;
     private LocalDateTime dateFacture;
 
     @ManyToOne
@@ -35,11 +35,11 @@ public class Facture {
         this.reference = reference;
     }
 
-    public long getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(long total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 

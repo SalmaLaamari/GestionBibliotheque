@@ -35,7 +35,9 @@ public class EventService {
             return -1;
         } else if (findByReference(event.getReference())!=null) {
             return-2;
-        } else if (event.getReference()==null) {
+        } else if (event.getDescription()==null) {
+            return -3;
+        } else if (event.getImageEvent()==null) {
             return -3;
         }else {
             LocalDateTime localDateTime = LocalDateTime.now();

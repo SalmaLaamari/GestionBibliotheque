@@ -30,6 +30,8 @@ public class StockService {
             return -1;
         } else if (findByReference(stock.getReference())!=null) {
             return -2;
+        }else if (stock.getCapacite()==null) {
+            return -3;
         }else {
             stock.setReference("Stock-"+stock.getId());
             stockDao.save(stock);

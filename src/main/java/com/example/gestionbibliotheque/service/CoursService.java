@@ -46,7 +46,10 @@ public class CoursService {
             return -3 ;
         } else if (cours.getSource()==null) {
             return -4;
-
+        }else if (cours.getDescription()==null) {
+            return -5;
+        }else if (cours.getImageCour()==null) {
+            return -6;
         }else {
             cours.setReference("Cour-"+cours.getId());
             coursDao.save(cours);

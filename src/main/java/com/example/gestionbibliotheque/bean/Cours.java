@@ -15,6 +15,7 @@ public class Cours {
     private  String lien;
     private String description;
     private String source;
+    private String imageCour;
 
     public long getId() {
         return id;
@@ -54,5 +55,13 @@ public class Cours {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getImageCour() {
+        return imageCour;
+    }
+
+    public void setImageCour(String imageCour) {
+        this.imageCour = imageCour;
     }
 }

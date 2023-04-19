@@ -12,7 +12,7 @@ public class Paiement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id ;
     private String reference ;
-    private long montant ;
+    private double montant ;
     private LocalDateTime datePaiement ;
 
     public long getId() {
@@ -31,11 +31,11 @@ public class Paiement {
         this.reference = reference;
     }
 
-    public long getMontant() {
+    public double getMontant() {
         return montant;
     }
 
-    public void setMontant(long montant) {
+    public void setMontant(double montant) {
         this.montant = montant;
     }
 

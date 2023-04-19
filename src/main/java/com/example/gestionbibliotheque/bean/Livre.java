@@ -10,7 +10,6 @@ public class Livre {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String reference;
-    private String  bookname;
     private String auteur;
     private String titre;
     private String branche;
@@ -54,14 +53,6 @@ public class Livre {
 
     public void setReference(String reference) {
         this.reference = reference;
-    }
-
-    public String getBookname() {
-        return bookname;
-    }
-
-    public void setBookname(String bookname) {
-        this.bookname = bookname;
     }
 
     public String getAuteur() {

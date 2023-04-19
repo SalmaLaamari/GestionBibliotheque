@@ -15,6 +15,7 @@ public class Event {
     private String reference;
     private String description;
     private LocalDateTime dateEvent;
+    private String imageEvent;
 
     public long getId() {
         return id;
@@ -46,5 +47,13 @@ public class Event {
 
     public void setDateEvent(LocalDateTime dateEvent) {
         this.dateEvent = dateEvent;
+    }
+
+    public String getImageEvent() {
+        return imageEvent;
+    }
+
+    public void setImageEvent(String imageEvent) {
+        this.imageEvent = imageEvent;
     }
 }

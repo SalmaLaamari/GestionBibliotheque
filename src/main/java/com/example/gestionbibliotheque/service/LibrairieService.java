@@ -41,6 +41,8 @@ public class LibrairieService {
             return -1;
         }else if (librairie.getNom()==null){
             return -2;
+        }else if (librairie.getEmail()==null){
+            return -3;
         }else {
             librairie.setReference("Librairie-"+librairie.getId());
             librairieDao.save(librairie);
