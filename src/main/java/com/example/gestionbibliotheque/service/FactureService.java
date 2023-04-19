@@ -46,7 +46,7 @@ public class FactureService {
     public List<Facture> findAll() {
         return factureDao.findAll();
     }
-    int save(Facture facture){
+    public int save(Facture facture){
         if (facture.getReference()==null){
             return -1;
         } else if (findByReference(facture.getReference())!=null) {
