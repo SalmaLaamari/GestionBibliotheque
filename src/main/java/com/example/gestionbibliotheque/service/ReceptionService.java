@@ -26,8 +26,8 @@ public class ReceptionService {
     public int deleteByReference(String reference) {
         return receptionDao.deleteByReference(reference);
     }
-    public List<Reception> findAll(Sort sort) {
-        return receptionDao.findAll(sort);
+    public List<Reception> findAll() {
+        return receptionDao.findAll();
     }
     public int save(Reception reception){
         if (reception.getReference()==null){

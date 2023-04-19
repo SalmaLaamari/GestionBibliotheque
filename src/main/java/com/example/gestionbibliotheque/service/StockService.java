@@ -22,8 +22,8 @@ public class StockService {
         return stockDao.deleteByReference(reference);
     }
 
-    public List<Stock> findAll(Sort sort) {
-        return stockDao.findAll(sort);
+    public List<Stock> findAll() {
+        return stockDao.findAll();
     }
     public int save(Stock stock){
         if (stock.getReference()==null){
