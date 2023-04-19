@@ -29,7 +29,7 @@ public class EventProvided {
 
     @Transactional
     @DeleteMapping("/reference/{reference}")
-    public Event deleteByReference(@PathVariable String reference) {
+    public int deleteByReference(@PathVariable String reference) {
         return eventService.deleteByReference(reference);
     }
     @PostMapping("/")

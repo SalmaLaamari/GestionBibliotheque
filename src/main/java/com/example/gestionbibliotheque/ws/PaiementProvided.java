@@ -31,8 +31,8 @@ public class PaiementProvided {
     public List<Paiement> findAll() {
         return paiementService.findAll();
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int save(@RequestBody Paiement paiement) {
         return paiementService.save(paiement);
     }
-}
+    }

@@ -27,7 +27,7 @@ public class EventService {
         return eventDao.findByDateEvent(date);
     }
     @Transactional
-    public Event deleteByReference(String reference) {
+    public int deleteByReference(String reference) {
         return eventDao.deleteByReference(reference);
     }
     public int save(Event event){

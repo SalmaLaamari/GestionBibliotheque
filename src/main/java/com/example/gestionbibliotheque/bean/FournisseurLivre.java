@@ -15,7 +15,7 @@ public class FournisseurLivre {
     private String email;
     private String adresse;
     private String telephone;
-    private String  reference;
+    private String reference;
 
     public long getId() {
         return id;

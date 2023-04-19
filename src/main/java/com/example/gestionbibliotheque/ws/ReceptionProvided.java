@@ -15,14 +15,13 @@ import java.util.List;
 public class ReceptionProvided {
     @Autowired
     private ReceptionService receptionService;
-    @GetMapping()
+    @GetMapping("/reference/{reference}")
     public Reception findByReference(@PathVariable String reference) {
         return receptionService.findByReference(reference);
     }
-    @DeleteMapping("/DateReception/{date}")
-    @Transactional
-    public List<Reception> deleteByDateReception(@PathVariable LocalDateTime date) {
-        return receptionService.deleteByDateReception(date);
+    @GetMapping("/DateReception/{date}")
+    public List<Reception> findByDateReception(@PathVariable LocalDateTime date) {
+        return receptionService.findByDateReception(date);
     }
     @DeleteMapping("/Reception/{reference}")
     @Transactional
@@ -37,4 +36,4 @@ public class ReceptionProvided {
     public int save(@RequestBody Reception reception) {
         return receptionService.save(reception);
     }
-}
+    }

@@ -34,15 +34,15 @@ public class ReservationService {
     public Reservation findByUtilisateurReference(String reference) {
         return reservationDao.findByUtilisateurReference(reference);
     }
-@Transactional
+    @Transactional
     public int deleteByReference(String reference) {
         return reservationDao.deleteByReference(reference);
     }
-@Transactional
+    @Transactional
     public int deleteByUtilisateurReference(String reference) {
         return reservationDao.deleteByUtilisateurReference(reference);
     }
-@Transactional
+    @Transactional
     public int deleteByLivreReference(String reference) {
         return reservationDao.deleteByLivreReference(reference);
     }

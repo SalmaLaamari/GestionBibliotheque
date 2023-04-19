@@ -14,11 +14,11 @@ import java.util.List;
 public class LivreProvided {
     @Autowired
     private LivreService livreService;
-@GetMapping("/LivreReference/{reference}")
+    @GetMapping("/LivreReference/{reference}")
     public Livre findByReference(@PathVariable String reference) {
         return livreService.findByReference(reference);
     }
-@GetMapping("/Auteur/{auteur}")
+    @GetMapping("/Auteur/{auteur}")
     public Livre findByAuteur(@PathVariable String auteur) {
         return livreService.findByAuteur(auteur);
     }
@@ -51,8 +51,8 @@ public class LivreProvided {
     public List<Livre> findAll() {
         return livreService.findAll();
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int save(@RequestBody Livre livre) {
         return livreService.save(livre);
     }
-}
+    }

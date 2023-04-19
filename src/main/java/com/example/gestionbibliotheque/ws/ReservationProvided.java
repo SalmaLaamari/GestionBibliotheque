@@ -14,7 +14,7 @@ import java.util.List;
 public class ReservationProvided {
     @Autowired
     private ReservationService reservationService;
-@GetMapping("/Reference/{reference}")
+    @GetMapping("/Reference/{reference}")
     public Reservation findByReference(@PathVariable String reference) {
         return reservationService.findByReference(reference);
     }
@@ -34,7 +34,7 @@ public class ReservationProvided {
     public Reservation findByUtilisateurReference(@PathVariable String reference) {
         return reservationService.findByUtilisateurReference(reference);
     }
-    @DeleteMapping("/ReservationReference/{reference}")
+    @DeleteMapping("/Reference/{reference}")
     @Transactional
     public int deleteByReference(@PathVariable String reference) {
         return reservationService.deleteByReference(reference);

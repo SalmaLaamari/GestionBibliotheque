@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface ReceptionDao extends JpaRepository<Reception,Long> {
     Reception findByReference(String reference);
-    List<Reception> deleteByDateReception(LocalDateTime date);
+    List<Reception> findByDateReception(LocalDateTime date);
     int deleteByReference(String reference);
 }

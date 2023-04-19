@@ -29,7 +29,11 @@ public class UtilisateurProvided {
     public Utilisateur findByEmailAndPasseword(@PathVariable String email,@PathVariable String password) {
         return utilisateurService.findByEmailAndPasseword(email, password);
     }
-@DeleteMapping("/Reference/{reference}")
+    @GetMapping("/Cin/{cin}")
+    public Utilisateur findByCin(@PathVariable String cin) {
+        return utilisateurService.findByCin(cin);
+    }
+    @DeleteMapping("/Reference/{reference}")
     @Transactional
     public int deleteByReference(@PathVariable String reference) {
         return utilisateurService.deleteByReference(reference);
@@ -42,11 +46,11 @@ public class UtilisateurProvided {
     public Utilisateur findByEmail(@PathVariable String email) {
         return utilisateurService.findByEmail(email);
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int createUser(@RequestBody Utilisateur utilisateur) {
         return utilisateurService.createUser(utilisateur);
     }
-@GetMapping("/Email/{email}/Password/{password}")
+    @GetMapping("/Email/{email}/Password/{password}")
     public int loginUser(@PathVariable String email,@PathVariable String password) {
         return utilisateurService.loginUser(email, password);
     }

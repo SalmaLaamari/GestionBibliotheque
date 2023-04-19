@@ -18,7 +18,7 @@ public class CategorieCoursProvided {
         return categorieCoursService.findByReference(reference);
     }
     @GetMapping("/nom/{nom}")
-    public CategorieCours findByNom(@PathVariable String nom) {
+    public List<CategorieCours> findByNom(@PathVariable String nom) {
         return categorieCoursService.findByNom(nom);
     }
 

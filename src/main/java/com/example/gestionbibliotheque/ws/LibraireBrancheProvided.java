@@ -17,7 +17,7 @@ public class LibraireBrancheProvided {
     public LibrairieBranche findByReference(@PathVariable String reference) {
         return librairieBrancheService.findByReference(reference);
     }
-    @GetMapping("/name/{neme}")
+    @GetMapping("/name/{name}")
     public LibrairieBranche findByName(@PathVariable String name) {
         return librairieBrancheService.findByName(name);
     }

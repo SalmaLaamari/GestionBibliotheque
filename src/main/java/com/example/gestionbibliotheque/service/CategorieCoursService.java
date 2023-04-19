@@ -22,9 +22,10 @@ public class CategorieCoursService {
         return categorieCoursDao.findByReference(reference);
     }
 
-    public CategorieCours findByNom(String nom) {
+    public List<CategorieCours> findByNom(String nom) {
         return categorieCoursDao.findByNom(nom);
     }
+
     @Transactional
     public int deleteByReference(String reference) {
         return categorieCoursDao.deleteByReference(reference);

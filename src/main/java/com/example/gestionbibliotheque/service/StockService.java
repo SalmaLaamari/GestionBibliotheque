@@ -17,7 +17,7 @@ public class StockService {
     public Stock findByReference(String reference) {
         return stockDao.findByReference(reference);
     }
-@Transactional
+    @Transactional
     public int deleteByReference(String reference) {
         return stockDao.deleteByReference(reference);
     }

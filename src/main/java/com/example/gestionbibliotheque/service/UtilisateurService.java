@@ -29,6 +29,10 @@ public class UtilisateurService {
         return utilisateurDao.findByEmailAndPasseword(email, password);
     }
 
+    public Utilisateur findByCin(String cin) {
+        return utilisateurDao.findByCin(cin);
+    }
+
     @Transactional
     public int deleteByReference(String reference) {
         return utilisateurDao.deleteByReference(reference);

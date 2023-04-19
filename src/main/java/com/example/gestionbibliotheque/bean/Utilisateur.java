@@ -18,6 +18,7 @@ public class Utilisateur {
     private LocalDateTime dateAuthentification;
     private String passeword;
     private String role;
+    private String cin;
     private String reference;
 
     public Long getId() {
@@ -82,5 +83,13 @@ public class Utilisateur {
 
     public void setReference(String reference) {
         this.reference = reference;
+    }
+
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
     }
 }

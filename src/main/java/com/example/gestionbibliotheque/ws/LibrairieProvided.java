@@ -13,7 +13,7 @@ import java.util.List;
 public class LibrairieProvided {
     @Autowired
     private LibrairieService librairieService;
-@GetMapping("/LibrairieReference/{reference}")
+    @GetMapping("/LibrairieReference/{reference}")
     public Librairie findByReference(@PathVariable String reference) {
         return librairieService.findByReference(reference);
     }
@@ -29,8 +29,8 @@ public class LibrairieProvided {
     public Librairie findByEmail(@PathVariable String email) {
         return librairieService.findByEmail(email);
     }
-@DeleteMapping("/reference/{reference}")
-@Transactional
+    @DeleteMapping("/reference/{reference}")
+    @Transactional
     public int deleteByReference(@PathVariable String reference) {
         return librairieService.deleteByReference(reference);
     }
@@ -38,7 +38,7 @@ public class LibrairieProvided {
     public List<Librairie> findAll() {
         return librairieService.findAll();
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int save(@RequestBody Librairie librairie) {
         return librairieService.save(librairie);
     }

@@ -18,9 +18,9 @@ public class ReceptionService {
     public Reception findByReference(String reference) {
         return receptionDao.findByReference(reference);
     }
-    @Transactional
-    public List<Reception> deleteByDateReception(LocalDateTime date) {
-        return receptionDao.deleteByDateReception(date);
+
+    public List<Reception> findByDateReception(LocalDateTime date) {
+        return receptionDao.findByDateReception(date);
     }
     @Transactional
     public int deleteByReference(String reference) {

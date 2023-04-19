@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface UtilisateurDao extends JpaRepository<Utilisateur, Long> {
     Utilisateur findByReference(String reference);
     Utilisateur findByNom(String nom);
+    Utilisateur findByCin(String cin);
     Utilisateur findByPrenom(String prenom);
     Utilisateur findByEmailAndPasseword(String email, String password );
     int deleteByReference(String reference);

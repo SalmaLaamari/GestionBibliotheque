@@ -14,15 +14,15 @@ import java.util.List;
 public class PenaliteProvided {
     @Autowired
     private PenaliteService penaliteService;
-@GetMapping("/Reference/{reference}")
+    @GetMapping("/Reference/{reference}")
     public Penalite findByReference(@PathVariable String reference) {
         return penaliteService.findByReference(reference);
     }
-@GetMapping("/DatePenalite/{date}")
+    @GetMapping("/DatePenalite/{date}")
     public List<Penalite> findByDatePenalite(@PathVariable LocalDateTime date) {
         return penaliteService.findByDatePenalite(date);
     }
-@DeleteMapping("/Reference/{reference}")
+    @DeleteMapping("/Reference/{reference}")
     @Transactional
     public int deleteByReference(@PathVariable String reference) {
         return penaliteService.deleteByReference(reference);
@@ -31,17 +31,17 @@ public class PenaliteProvided {
     public Penalite findByUtilisateurReference(@PathVariable String reference) {
         return penaliteService.findByUtilisateurReference(reference);
     }
-@DeleteMapping("/UtilisateurReference/{reference}")
+    @DeleteMapping("/UtilisateurReference/{reference}")
     @Transactional
     public int deleteByUtilisateurReference(@PathVariable String reference) {
         return penaliteService.deleteByUtilisateurReference(reference);
     }
-@GetMapping("/")
+    @GetMapping("/")
     public List<Penalite> findAll() {
         return penaliteService.findAll();
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int save(@RequestBody Penalite penalite) {
         return penaliteService.save(penalite);
     }
-}
+    }
