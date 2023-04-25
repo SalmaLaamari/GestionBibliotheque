@@ -22,7 +22,7 @@ public class PaiementProvided {
     public List<Paiement> findByDatePaiement(@PathVariable LocalDateTime date) {
         return paiementService.findByDatePaiement(date);
     }
-    @DeleteMapping("/Reference/reference")
+    @DeleteMapping("/Reference/{reference}")
     @Transactional
     public int deleteByReference(@PathVariable String reference) {
         return paiementService.deleteByReference(reference);

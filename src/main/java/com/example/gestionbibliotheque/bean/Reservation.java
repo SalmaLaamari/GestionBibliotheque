@@ -10,7 +10,6 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalDateTime dateReservation;
-    private LocalDateTime dateRendement;
     private String reference;
     @ManyToOne
     private Livre livre;
@@ -49,13 +48,6 @@ public class Reservation {
         this.dateReservation = dateReservation;
     }
 
-    public LocalDateTime getDateRendement() {
-        return dateRendement;
-    }
-
-    public void setDateRendement(LocalDateTime dateRendement) {
-        this.dateRendement = dateRendement;
-    }
 
     public String getReference() {
         return reference;

@@ -66,6 +66,7 @@ public class LivreService {
             livre.setFournisseurLivre(livre.getFournisseurLivre());
             livre.setLibrairie(livre.getLibrairie());
             livre.setStock(livre.getStock());
+            livreDao.save(livre);
             livre.setReference("Livre-"+livre.getId());
             livreDao.save(livre);
             return 1;

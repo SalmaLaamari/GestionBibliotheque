@@ -14,6 +14,15 @@ public class Reception {
     private long id ;
     private LocalDateTime dateReception;
     private String reference;
+    private double quantitereceptione;
+
+    public double getQuantitereceptione() {
+        return quantitereceptione;
+    }
+
+    public void setQuantitereceptione(double quantitereceptione) {
+        this.quantitereceptione = quantitereceptione;
+    }
 
     public long getId() {
         return id;

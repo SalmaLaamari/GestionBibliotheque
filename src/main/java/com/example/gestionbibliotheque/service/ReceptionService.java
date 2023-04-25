@@ -30,14 +30,13 @@ public class ReceptionService {
         return receptionDao.findAll();
     }
     public int save(Reception reception){
-        if (reception.getReference()==null){
-            return -1;
-        } else if (findByReference(reception.getReference())!=null) {
+      if (findByReference(reception.getReference())!=null) {
             return -2;
         }else {
-            reception.setReference("Reception-"+reception.getId());
-            LocalDateTime localDateTime= LocalDateTime.now();
-            reception.setDateReception(localDateTime);
+          LocalDateTime localDateTime= LocalDateTime.now();
+          reception.setDateReception(localDateTime);
+          receptionDao.save(reception);
+          reception.setReference("Reception-"+reception.getId());
             receptionDao.save(reception);
             return 1;
 
