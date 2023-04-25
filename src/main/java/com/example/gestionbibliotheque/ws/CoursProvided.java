@@ -21,11 +21,13 @@ public class CoursProvided {
     public Cours findByLien(@PathVariable String lien) {
         return coursService.findByLien(lien);
     }
-   @GetMapping("/source/{source}")
-    public Cours findBySource(@PathVariable String Source) {
-        return coursService.findBySource(Source);
+
+    @GetMapping("/source/{source}")
+    public List<Cours> findBySource(@PathVariable String source) {
+        return coursService.findBySource(source);
     }
-   @GetMapping("/description/{description}")
+
+    @GetMapping("/description/{description}")
     public Cours findByDescription(@PathVariable String description) {
         return coursService.findByDescription(description);
     }

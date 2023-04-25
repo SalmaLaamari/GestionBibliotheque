@@ -2,12 +2,14 @@ package com.example.gestionbibliotheque.bean;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class FicheEmpreinte {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String dateRetour;
+    private LocalDateTime dateRetour;
     private String reference;
     @ManyToOne
     private Utilisateur utilisateur;
@@ -20,11 +22,11 @@ public class FicheEmpreinte {
         this.id = id;
     }
 
-    public String getDateRetour() {
+    public LocalDateTime getDateRetour() {
         return dateRetour;
     }
 
-    public void setDateRetour(String dateRetour) {
+    public void setDateRetour(LocalDateTime dateRetour) {
         this.dateRetour = dateRetour;
     }
 

@@ -39,14 +39,10 @@ public class CategorieCoursService {
         return categorieCoursDao.findAll();
     }
     public int save(CategorieCours categorieCours){
-        if (categorieCours.getReference()==null){
+        if (categorieCours.getNom()==null) {
             return -1;
-        } else if(findByReference(categorieCours.getReference())!=null) {
-            return -2;
-        }
-        else if (categorieCours.getNom()==null) {
-            return -3;
         } else  {
+            categorieCoursDao.save(categorieCours);
             categorieCours.setReference("Categorie-"+categorieCours.getId());
             categorieCoursDao.save(categorieCours);
             return 1;

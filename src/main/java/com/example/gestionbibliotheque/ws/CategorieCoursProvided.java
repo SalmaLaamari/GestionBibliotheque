@@ -28,6 +28,7 @@ public class CategorieCoursProvided {
         return categorieCoursService.deleteByReference(reference);
     }
     @DeleteMapping("/nom/{nom}")
+    @Transactional
     public int deleteByNom(@PathVariable String nom) {
         return categorieCoursService.deleteByNom(nom);
     }

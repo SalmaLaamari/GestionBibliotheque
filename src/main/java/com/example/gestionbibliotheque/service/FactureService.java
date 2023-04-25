@@ -47,16 +47,11 @@ public class FactureService {
         return factureDao.findAll();
     }
     public int save(Facture facture){
-        if (facture.getReference()==null){
+        if (facture.getTotal()<=0){
             return -1;
-        } else if (findByReference(facture.getReference())!=null) {
-            return -2;
-        }else if (facture.getTotal()<=0){
-            return -3;
         }else {
             facture.setFournisseurLivre(facture.getFournisseurLivre());
-            LocalDateTime localDateTime = LocalDateTime.now();
-            facture.setDateFacture(localDateTime);
+            factureDao.save(facture);
             facture.setReference("Facture-"+facture.getId());
             factureDao.save(facture);
             return 1;

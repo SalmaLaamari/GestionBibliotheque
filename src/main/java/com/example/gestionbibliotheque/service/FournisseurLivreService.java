@@ -46,15 +46,10 @@ public class FournisseurLivreService {
         return fournisseurLivreDao.findAll();
     }
     public  int save(FournisseurLivre fournisseurLivre){
-        if (fournisseurLivre.getReference()==null){
+        if (fournisseurLivre.getEmail()==null) {
             return -1;
-        } else if (fournisseurLivre.getNom()==null && fournisseurLivre.getPrenom()==null) {
-            return -2;
-        }else if (fournisseurLivre.getEmail()==null) {
-            return -3;
-        } else if (findByReference(fournisseurLivre.getReference())!=null) {
-            return -4;
         }else {
+            fournisseurLivreDao.save(fournisseurLivre);
             fournisseurLivre.setReference("Fournisseur-"+fournisseurLivre.getId());
             fournisseurLivreDao.save(fournisseurLivre);
             return 1;

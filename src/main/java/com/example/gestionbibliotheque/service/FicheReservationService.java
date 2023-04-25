@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -19,9 +20,10 @@ public class FicheReservationService {
         return ficheReservationDao.findByReference(reference);
     }
 
-    public FicheReservation findByUtilisateurReference(String reference) {
+    public List<FicheReservation> findByUtilisateurReference(String reference) {
         return ficheReservationDao.findByUtilisateurReference(reference);
     }
+
     @Transactional
     public int deleteByReference(String reference) {
         return ficheReservationDao.deleteByReference(reference);
@@ -31,16 +33,14 @@ public class FicheReservationService {
         return ficheReservationDao.findAll();
     }
     public int save(FicheReservation ficheReservation){
-        if (ficheReservation.getReference()==null){
-            return -1;
-        }else if (findByReference(ficheReservation.getReference())!=null){
-            return -2;
-        }else {
             ficheReservation.setUtilisateur(ficheReservation.getUtilisateur());
+            ficheReservationDao.save(ficheReservation);
+            LocalDateTime localDateTime = LocalDateTime.now();
+            ficheReservation.setDateReservation(localDateTime);
             ficheReservation.setReference("FicheReser-"+ficheReservation.getId());
             ficheReservationDao.save(ficheReservation);
             return 1;
-        }
+
 
     }
 }

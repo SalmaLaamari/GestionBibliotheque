@@ -18,10 +18,12 @@ public class FicheDempreinteProvided {
     public FicheEmpreinte findByReference(@PathVariable String reference) {
         return ficheDempreinteService.findByReference(reference);
     }
-   @GetMapping("/UtilisateurReference/{reference}")
-    public FicheEmpreinte findByUtilisateurReference(@PathVariable String reference) {
+
+    @GetMapping("/UtilisateurReference/{reference}")
+    public List<FicheEmpreinte> findByUtilisateurReference(@PathVariable String reference) {
         return ficheDempreinteService.findByUtilisateurReference(reference);
     }
+
     @GetMapping("/date/{date}")
     public FicheEmpreinte findByDateRetour(@PathVariable LocalDateTime date) {
         return ficheDempreinteService.findByDateRetour(date);

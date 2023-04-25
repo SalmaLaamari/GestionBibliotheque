@@ -34,17 +34,14 @@ public class LibrairieBrancheService {
         return librairieBrancheDao.findAll();
     }
     public  int save(LibrairieBranche librairieBranche){
-        if (librairieBranche.getReference()==null){
-            return -1;
-        } else if (findByReference(librairieBranche.getReference())!=null) {
-            return -2;
-        } else if (librairieBranche.getName()==null ) {
+        if (librairieBranche.getName()==null ) {
             return -3;
         } else if (librairieBranche.getEmail()==null ) {
             return -4;
         } else if (librairieBranche.getDescription()==null ) {
             return -5;
         }else {
+            librairieBrancheDao.save(librairieBranche);
             librairieBranche.setLibrairie(librairieBranche.getLibrairie());
             librairieBranche.setReference("LibrairieBranch-"+librairieBranche.getId());
             librairieBrancheDao.save(librairieBranche);

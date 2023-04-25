@@ -19,7 +19,7 @@ public class FicheDempreinteService {
         return ficheDempreinteDao.findByReference(reference);
     }
 
-    public FicheEmpreinte findByUtilisateurReference(String reference) {
+    public List<FicheEmpreinte> findByUtilisateurReference(String reference) {
         return ficheDempreinteDao.findByUtilisateurReference(reference);
     }
 
@@ -35,16 +35,13 @@ public class FicheDempreinteService {
         return ficheDempreinteDao.findAll();
     }
     public int save(FicheEmpreinte ficheEmpreinte){
-        if (ficheEmpreinte.getReference()==null){
-            return -1;
-        } else if (findByReference(ficheEmpreinte.getReference())!=null) {
-            return -2;
-        }else {
             ficheEmpreinte.setUtilisateur(ficheEmpreinte.getUtilisateur());
+            ficheDempreinteDao.save(ficheEmpreinte);
+            LocalDateTime localDateTime = LocalDateTime.now().plusWeeks(1);
+            ficheEmpreinte.setDateRetour(localDateTime);
             ficheEmpreinte.setReference("FicheEmpr-"+ficheEmpreinte.getId());
             ficheDempreinteDao.save(ficheEmpreinte);
             return 1;
-        }
 
     }
 }

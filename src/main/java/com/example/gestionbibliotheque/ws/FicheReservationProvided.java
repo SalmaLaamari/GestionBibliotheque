@@ -17,8 +17,9 @@ public class FicheReservationProvided {
     public FicheReservation findByReference(@PathVariable String reference) {
         return ficheReservationService.findByReference(reference);
     }
+
     @GetMapping("/UtilisateurReference/{reference}")
-    public FicheReservation findByUtilisateurReference(@PathVariable String reference) {
+    public List<FicheReservation> findByUtilisateurReference(@PathVariable String reference) {
         return ficheReservationService.findByUtilisateurReference(reference);
     }
 

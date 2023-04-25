@@ -31,17 +31,12 @@ public class EventService {
         return eventDao.deleteByReference(reference);
     }
     public int save(Event event){
-        if (event.getReference()==null){
+         if (event.getDescription()==null) {
             return -1;
-        } else if (findByReference(event.getReference())!=null) {
-            return-2;
-        } else if (event.getDescription()==null) {
-            return -3;
         } else if (event.getImageEvent()==null) {
-            return -3;
+            return -2;
         }else {
-            LocalDateTime localDateTime = LocalDateTime.now();
-            event.setDateEvent(localDateTime);
+            eventDao.save(event);
             event.setReference("Event-"+event.getId());
             eventDao.save(event);
             return 1;

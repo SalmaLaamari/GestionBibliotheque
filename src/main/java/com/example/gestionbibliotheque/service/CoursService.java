@@ -22,8 +22,8 @@ public class CoursService {
         return coursDao.findByLien(lien);
     }
 
-    public Cours findBySource(String Source) {
-        return coursDao.findBySource(Source);
+    public List<Cours> findBySource(String source) {
+        return coursDao.findBySource(source);
     }
 
     public Cours findByDescription(String description) {
@@ -38,19 +38,16 @@ public class CoursService {
         return coursDao.findAll();
     }
     public int save(Cours cours){
-        if (cours.getReference()==null){
-            return -1;
-        } else if (findByReference(cours.getReference())!=null) {
-            return -2;
-        } else if (cours.getLien()==null) {
-            return -3 ;
+        if (cours.getLien()==null) {
+            return -1 ;
         } else if (cours.getSource()==null) {
-            return -4;
+            return -2;
         }else if (cours.getDescription()==null) {
-            return -5;
+            return -3;
         }else if (cours.getImageCour()==null) {
-            return -6;
+            return -4;
         }else {
+            coursDao.save(cours);
             cours.setReference("Cour-"+cours.getId());
             coursDao.save(cours);
             return 1;
