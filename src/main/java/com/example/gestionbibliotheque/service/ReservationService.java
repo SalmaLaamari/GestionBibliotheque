@@ -23,9 +23,6 @@ public class ReservationService {
         return reservationDao.findByDateReservation(date);
     }
 
-    public List<Reservation> findByDateRendement(LocalDateTime date) {
-        return reservationDao.findByDateRendement(date);
-    }
 
     public Reservation findByLivreReference(String reference) {
         return reservationDao.findByLivreReference(reference);
@@ -51,13 +48,14 @@ public class ReservationService {
         return reservationDao.findAll();
     }
     public int save(Reservation reservation){
-        if (reservation.getReference()==null){
-            return -1;
-        }else if (findByReference(reservation.getReference())!=null){
+        if (findByReference(reservation.getReference())!=null){
             return -2;
         }else {
             reservation.setLivre(reservation.getLivre());
             reservation.setUtilisateur(reservation.getUtilisateur());
+            LocalDateTime localDateTime= LocalDateTime.now();
+            reservation.setDateReservation(localDateTime);
+            reservationDao.save(reservation);
             reservation.setReference("Reservation-"+reservation.getId());
             reservationDao.save(reservation);
             return 1;

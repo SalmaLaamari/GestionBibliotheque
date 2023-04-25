@@ -22,10 +22,7 @@ public class ReservationProvided {
     public List<Reservation> findByDateReservation(@PathVariable LocalDateTime date) {
         return reservationService.findByDateReservation(date);
     }
-    @GetMapping("/DateRendement/{date}")
-    public List<Reservation> findByDateRendement(@PathVariable LocalDateTime date) {
-        return reservationService.findByDateRendement(date);
-    }
+
     @GetMapping("/LivreReference/{reference}")
     public Reservation findByLivreReference(@PathVariable String reference) {
         return reservationService.findByLivreReference(reference);

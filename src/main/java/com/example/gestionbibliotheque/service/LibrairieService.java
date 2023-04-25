@@ -37,13 +37,12 @@ public class LibrairieService {
         return librairieDao.findAll();
     }
     public int save(Librairie librairie){
-        if (librairie.getReference()==null){
-            return -1;
-        }else if (librairie.getNom()==null){
+        if (librairie.getNom()==null){
             return -2;
         }else if (librairie.getEmail()==null){
             return -3;
         }else {
+            librairieDao.save(librairie);
             librairie.setReference("Librairie-"+librairie.getId());
             librairieDao.save(librairie);
             return 1;

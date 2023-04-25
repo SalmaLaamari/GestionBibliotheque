@@ -15,6 +15,7 @@ public class PenaliteService {
     @Autowired
     private PenaliteDao penaliteDao;
 
+
     public Penalite findByReference(String reference) {
         return penaliteDao.findByReference(reference);
     }
@@ -39,14 +40,13 @@ public class PenaliteService {
         return penaliteDao.findAll();
     }
     public int save(Penalite penalite){
-        if (penalite.getReference()==null){
-            return -1;
-        } else if (findByReference(penalite.getReference())!=null) {
+       if (findByReference(penalite.getReference())!=null) {
             return -2;
         } else {
             LocalDateTime localDateTime= LocalDateTime.now();
             penalite.setDatePenalite(localDateTime);
             penalite.setUtilisateur(penalite.getUtilisateur());
+            penaliteDao.save(penalite);
             penalite.setReference("Penalite-"+penalite.getId());
             penaliteDao.save(penalite);
             return 1;

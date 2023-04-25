@@ -12,7 +12,6 @@ import java.util.List;
 public interface ReservationDao extends JpaRepository<Reservation,Long> {
     Reservation findByReference(String reference);
     List<Reservation> findByDateReservation(LocalDateTime date);
-    List<Reservation> findByDateRendement(LocalDateTime date);
     Reservation findByLivreReference(String reference);
     Reservation findByUtilisateurReference(String reference);
     int deleteByReference(String reference);

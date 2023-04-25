@@ -34,14 +34,13 @@ public class PaiementService {
         return paiementDao.findAll();
     }
     public int save(Paiement paiement){
-        if (paiement.getReference()==null){
-            return -1;
-        } else if (findByReference(paiement.getReference())!=null) {
+        if (findByReference(paiement.getReference())!=null) {
             return -2;
         }else {
             LocalDateTime localDateTime=LocalDateTime.now();
             paiement.setDatePaiement(localDateTime);
-            paiement.setReference("P-"+paiement.getId());
+            paiementDao.save(paiement);
+            paiement.setReference("Paiement-"+paiement.getId());
             paiementDao.save(paiement);
             return 1;
         }

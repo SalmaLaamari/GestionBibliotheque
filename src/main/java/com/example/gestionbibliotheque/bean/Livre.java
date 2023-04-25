@@ -15,6 +15,7 @@ public class Livre {
     private String branche;
     private Boolean availabilityStatus;
     private String imagesrc;
+
     @ManyToOne
     private FournisseurLivre fournisseurLivre;
 

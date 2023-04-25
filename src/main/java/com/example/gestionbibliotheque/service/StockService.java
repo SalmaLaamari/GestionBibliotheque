@@ -26,13 +26,12 @@ public class StockService {
         return stockDao.findAll();
     }
     public int save(Stock stock){
-        if (stock.getReference()==null){
-            return -1;
-        } else if (findByReference(stock.getReference())!=null) {
+        if (findByReference(stock.getReference())!=null) {
             return -2;
         }else if (stock.getCapacite()==null) {
             return -3;
         }else {
+            stockDao.save(stock);
             stock.setReference("Stock-"+stock.getId());
             stockDao.save(stock);
             return 1;
