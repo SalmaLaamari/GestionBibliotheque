@@ -12,8 +12,8 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id ;
     private String reference;
-    private String quantite;
-    private String capacite;
+    private double quantite;
+    private double capacite;
 
     public long getId() {
         return id;
@@ -31,19 +31,19 @@ public class Stock {
         this.reference = reference;
     }
 
-    public String getQuantite() {
+    public Double getQuantite() {
         return quantite;
     }
 
-    public void setQuantite(String quantite) {
+    public void setQuantite(Double quantite) {
         this.quantite = quantite;
     }
 
-    public String getCapacite() {
+    public Double getCapacite() {
         return capacite;
     }
 
-    public void setCapacite(String capacite) {
+    public void setCapacite(Double capacite) {
         this.capacite = capacite;
     }
 }
