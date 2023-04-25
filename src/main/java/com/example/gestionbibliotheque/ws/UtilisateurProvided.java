@@ -50,7 +50,7 @@ public class UtilisateurProvided {
     public int createUser(@RequestBody Utilisateur utilisateur) {
         return utilisateurService.createUser(utilisateur);
     }
-    @GetMapping("/Email/{email}/Password/{password}")
+    @GetMapping("/Login/Email/{email}/Password/{password}")
     public int loginUser(@PathVariable String email,@PathVariable String password) {
         return utilisateurService.loginUser(email, password);
     }
