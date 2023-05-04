@@ -44,4 +44,9 @@ public class PenaliteProvided {
     public int save(@RequestBody Penalite penalite) {
         return penaliteService.save(penalite);
     }
+
+    @PutMapping("/")
+    public int update(@RequestBody Penalite penalite) {
+        return penaliteService.update(penalite);
     }
+}

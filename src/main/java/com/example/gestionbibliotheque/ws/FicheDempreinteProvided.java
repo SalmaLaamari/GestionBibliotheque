@@ -42,4 +42,9 @@ public class FicheDempreinteProvided {
     public int save(@RequestBody FicheEmpreinte ficheEmpreinte) {
         return ficheDempreinteService.save(ficheEmpreinte);
     }
+
+    @PutMapping("/")
+    public int update(@RequestBody FicheEmpreinte ficheEmpreinte) {
+        return ficheDempreinteService.update(ficheEmpreinte);
+    }
 }

@@ -7,17 +7,18 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface LivreDao extends JpaRepository<Livre,Long> {
     Livre findByReference(String reference);
-    Livre findByAuteur(String auteur);
-    Livre findByTitre(String titre);
-    List<Livre> findByBranche(String branche);
+    List<Livre> findByAuteur(String auteur);
+    Optional<Livre> findByTitre(String titre);
+    List<Livre> findByLangue(String langue);
+    List<Livre> findByCategorieLivreNom(String nom);
     List<Livre> findByFournisseurLivreReference(String reference);
     List<Livre> findByStockReference(String reference);
     List<Livre> findByDatePublication(LocalDateTime date);
-    int deleteByReference(String reference);
 
 
 }

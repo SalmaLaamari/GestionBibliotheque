@@ -53,4 +53,21 @@ public class PenaliteService {
         }
 
     }
+    public int update(Penalite penalite) {
+        Penalite penalite1 = findByReference(penalite.getReference());
+        if (penalite1 != null) {
+            if (penalite.getDatePenalite() != null) {
+                penalite1.setDatePenalite(penalite.getDatePenalite());
+            }
+            if (penalite.getUtilisateur() != null) {
+                penalite1.setUtilisateur(penalite.getUtilisateur());
+            }
+            penaliteDao.save(penalite1);
+            return 1;
+        } else {
+            penaliteDao.save(penalite);
+            return 2;
+        }
+    }
+
 }

@@ -1,9 +1,6 @@
 package com.example.gestionbibliotheque.bean;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -12,11 +9,13 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    private String titre;
     private String reference;
     private String description;
     private LocalDateTime dateEvent;
     private String imageEvent;
-
+    @ManyToOne
+    private CategorieEvent categorieEvent;
     public long getId() {
         return id;
     }
@@ -55,5 +54,21 @@ public class Event {
 
     public void setImageEvent(String imageEvent) {
         this.imageEvent = imageEvent;
+    }
+
+    public CategorieEvent getCategorieEvent() {
+        return categorieEvent;
+    }
+
+    public void setCategorieEvent(CategorieEvent categorieEvent) {
+        this.categorieEvent = categorieEvent;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
     }
 }

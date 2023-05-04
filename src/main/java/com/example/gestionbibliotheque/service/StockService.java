@@ -1,5 +1,6 @@
 package com.example.gestionbibliotheque.service;
 
+import com.example.gestionbibliotheque.bean.Reservation;
 import com.example.gestionbibliotheque.bean.Stock;
 import com.example.gestionbibliotheque.dao.StockDao;
 import jakarta.transaction.Transactional;
@@ -38,4 +39,21 @@ public class StockService {
         }
 
     }
+    public int update(Stock stock) {
+        Stock stock1 = findByReference(stock.getReference());
+        if (stock1 != null) {
+            if (stock.getQuantite() != 0) {
+                stock1.setQuantite(stock.getQuantite());
+            }
+            if (stock.getCapacite() != null) {
+                stock1.setCapacite(stock.getCapacite());
+            }
+            stockDao.save(stock1);
+            return 1;
+        } else {
+            stockDao.save(stock);
+            return 2;
+        }
+    }
+
 }

@@ -13,6 +13,8 @@ import java.util.List;
 public class CoursService {
     @Autowired
     private CoursDao coursDao;
+    @Autowired
+    private CategorieCoursService categorieCoursService;
 
     public Cours findByReference(String reference) {
         return coursDao.findByReference(reference);
@@ -24,6 +26,10 @@ public class CoursService {
 
     public List<Cours> findBySource(String source) {
         return coursDao.findBySource(source);
+    }
+
+    public List<Cours> findByCategorieCoursNom(String nom) {
+        return coursDao.findByCategorieCoursNom(nom);
     }
 
     public Cours findByDescription(String description) {
@@ -47,6 +53,8 @@ public class CoursService {
         }else if (cours.getImageCour()==null) {
             return -4;
         }else {
+            cours.setCategorieCours(cours.getCategorieCours());
+            categorieCoursService.save(cours.getCategorieCours());
             coursDao.save(cours);
             cours.setReference("Cour-"+cours.getId());
             coursDao.save(cours);
@@ -54,4 +62,30 @@ public class CoursService {
         }
 
     }
+    public int update(Cours cours){
+        Cours cours1 = findByReference(cours.getReference());
+        if (cours1 != null){
+            if (cours.getLien() != null) {
+                cours1.setLien(cours.getLien());
+            }
+            if (cours.getDescription() != null) {
+                cours1.setDescription(cours.getDescription());
+            }
+            if (cours.getSource() != null) {
+                cours1.setSource(cours.getSource());
+            }
+            if (cours.getImageCour() != null) {
+                cours1.setImageCour(cours.getImageCour());
+            }
+            if (cours.getCategorieCours() != null) {
+                cours1.setCategorieCours(cours.getCategorieCours());
+            }
+            coursDao.save(cours1);
+            return 1;
+        } else {
+            coursDao.save(cours);
+            return 2;
+        }
+    }
+
 }

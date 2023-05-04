@@ -69,5 +69,36 @@ public class UtilisateurService {
         }
         return 1;
     }
+    public int update(Utilisateur utilisateur){
+        Utilisateur utilisateur1 = findByReference(utilisateur.getReference());
+        if (utilisateur1 != null){
+            if (utilisateur.getNom() != null) {
+                utilisateur1.setNom(utilisateur.getNom());
+            }
+            if (utilisateur.getPrenom() != null) {
+                utilisateur1.setPrenom(utilisateur.getPrenom());
+            }
+            if (utilisateur.getEmail() != null) {
+                utilisateur1.setEmail(utilisateur.getEmail());
+            }
+            if (utilisateur.getDateAuthentification() != null) {
+                utilisateur1.setDateAuthentification(utilisateur.getDateAuthentification());
+            }
+            if (utilisateur.getPasseword() != null) {
+                utilisateur1.setPasseword(utilisateur.getPasseword());
+            }
+            if (utilisateur.getRole() != null) {
+                utilisateur1.setRole(utilisateur.getRole());
+            }
+            if (utilisateur.getCin() != null) {
+                utilisateur1.setCin(utilisateur.getCin());
+            }
+            utilisateurDao.save(utilisateur1);
+            return 1;
+        } else {
+            utilisateurDao.save(utilisateur);
+            return 2;
+        }
+    }
 
 }

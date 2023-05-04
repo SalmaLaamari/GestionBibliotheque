@@ -8,16 +8,24 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("GestionBiblio/Reservation")
 public class ReservationProvided {
     @Autowired
     private ReservationService reservationService;
+
     @GetMapping("/Reference/{reference}")
     public Reservation findByReference(@PathVariable String reference) {
         return reservationService.findByReference(reference);
     }
+
+    @GetMapping("/cin/{cin}/titre/{titre}")
+    public Optional<Reservation>findByUtilisateurCinAndLivreTitre(@PathVariable String cin, @PathVariable String titre) {
+        return reservationService.findByUtilisateurCinAndLivreTitre(cin, titre);
+    }
+
     @GetMapping("/DateReservation/{date}")
     public List<Reservation> findByDateReservation(@PathVariable LocalDateTime date) {
         return reservationService.findByDateReservation(date);
@@ -50,8 +58,14 @@ public class ReservationProvided {
     public List<Reservation> findAll() {
         return reservationService.findAll();
     }
+
     @PostMapping("/")
+    @Transactional
     public int save(@RequestBody Reservation reservation) {
         return reservationService.save(reservation);
+    }
+    @PutMapping("/")
+    public int update(@RequestBody Reservation reservation) {
+        return reservationService.update(reservation);
     }
 }

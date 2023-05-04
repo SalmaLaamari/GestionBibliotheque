@@ -1,9 +1,6 @@
 package com.example.gestionbibliotheque.bean;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 
 @Entity
@@ -12,11 +9,12 @@ public class Cours {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String reference;
-    private  String lien;
+    private String lien;
     private String description;
     private String source;
     private String imageCour;
-
+    @ManyToOne
+    private CategorieCours categorieCours;
     public long getId() {
         return id;
     }
@@ -63,5 +61,13 @@ public class Cours {
 
     public void setImageCour(String imageCour) {
         this.imageCour = imageCour;
+    }
+
+    public CategorieCours getCategorieCours() {
+        return categorieCours;
+    }
+
+    public void setCategorieCours(CategorieCours categorieCours) {
+        this.categorieCours = categorieCours;
     }
 }

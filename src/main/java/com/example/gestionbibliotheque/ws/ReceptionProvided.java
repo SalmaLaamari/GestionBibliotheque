@@ -36,4 +36,9 @@ public class ReceptionProvided {
     public int save(@RequestBody Reception reception) {
         return receptionService.save(reception);
     }
+
+    @PutMapping("/")
+    public int update(@RequestBody Reception reception) {
+        return receptionService.update(reception);
     }
+}

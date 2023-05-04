@@ -11,10 +11,13 @@ public class Livre {
     private long id;
     private String reference;
     private String auteur;
-    private String titre;
-    private String branche;
+    private String titre = "";
     private Boolean availabilityStatus;
     private String imagesrc;
+    private String langue;
+    private int nbrEmpreintes;
+    @ManyToOne
+    private CategorieLivre categorieLivre;
 
     @ManyToOne
     private FournisseurLivre fournisseurLivre;
@@ -27,19 +30,9 @@ public class Livre {
 
     @ManyToOne
     private Reception reception;
-    @ManyToOne
-    private Utilisateur utilisateur;
+
 
     private LocalDateTime datePublication;
-
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
-    }
-
-    public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
-    }
-
     public long getId() {
         return id;
     }
@@ -72,13 +65,6 @@ public class Livre {
         this.titre = titre;
     }
 
-    public String getBranche() {
-        return branche;
-    }
-
-    public void setBranche(String branche) {
-        this.branche = branche;
-    }
 
     public Boolean getAvailabilityStatus() {
         return availabilityStatus;
@@ -134,5 +120,29 @@ public class Livre {
 
     public void setImagesrc(String imagesrc) {
         this.imagesrc = imagesrc;
+    }
+
+    public CategorieLivre getCategorieLivre() {
+        return categorieLivre;
+    }
+
+    public void setCategorieLivre(CategorieLivre categorieLivre) {
+        this.categorieLivre = categorieLivre;
+    }
+
+    public int getNbrEmpreintes() {
+        return nbrEmpreintes;
+    }
+
+    public void setNbrEmpreintes(int nbrEmpreintes) {
+        this.nbrEmpreintes = nbrEmpreintes;
+    }
+
+    public String getLangue() {
+        return langue;
+    }
+
+    public void setLangue(String langue) {
+        this.langue = langue;
     }
 }

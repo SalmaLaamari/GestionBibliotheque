@@ -10,7 +10,10 @@ import java.util.List;
 @Repository
 public interface EventDao extends JpaRepository<Event,Long> {
     Event findByReference(String reference);
+    Event findByTitre(String titre);
     Event findByDescription(String description);
     List<Event> findByDateEvent(LocalDateTime date);
+    List<Event> findByCategorieEventNom(String nom);
     int deleteByReference(String reference);
+    int deleteByTitre(String titre);
 }

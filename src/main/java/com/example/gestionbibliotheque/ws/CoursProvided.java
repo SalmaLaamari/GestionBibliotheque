@@ -32,6 +32,11 @@ public class CoursProvided {
         return coursService.findByDescription(description);
     }
 
+    @GetMapping("/nom/{nom}")
+    public List<Cours> findByCategorieCoursNom(@PathVariable String nom) {
+        return coursService.findByCategorieCoursNom(nom);
+    }
+
     @Transactional
     @DeleteMapping("/reference/{reference}")
     public int deleteByReference(@PathVariable String reference) {
@@ -44,5 +49,10 @@ public class CoursProvided {
     @PostMapping("/")
     public int save(@RequestBody Cours cours) {
         return coursService.save(cours);
+    }
+
+    @PutMapping("/")
+    public int update(@RequestBody Cours cours) {
+        return coursService.update(cours);
     }
 }

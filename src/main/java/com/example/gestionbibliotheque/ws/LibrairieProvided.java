@@ -42,4 +42,9 @@ public class LibrairieProvided {
     public int save(@RequestBody Librairie librairie) {
         return librairieService.save(librairie);
     }
+
+    @PutMapping("/")
+    public int update(@RequestBody Librairie librairie) {
+        return librairieService.update(librairie);
+    }
 }

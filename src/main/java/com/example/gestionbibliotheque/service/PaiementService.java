@@ -46,4 +46,21 @@ public class PaiementService {
         }
 
     }
+    public int update(Paiement paiement){
+        Paiement paiement1 = findByReference(paiement.getReference());
+        if (paiement1 != null){
+            if (paiement.getMontant() != 0) {
+                paiement1.setMontant(paiement.getMontant());
+            }
+            if (paiement.getDatePaiement() != null) {
+                paiement1.setDatePaiement(paiement.getDatePaiement());
+            }
+            paiementDao.save(paiement1);
+            return 1;
+        } else {
+            paiementDao.save(paiement);
+            return 2;
+        }
+    }
+
 }

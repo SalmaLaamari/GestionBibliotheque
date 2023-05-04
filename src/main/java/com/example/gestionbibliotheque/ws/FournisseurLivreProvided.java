@@ -50,4 +50,9 @@ public class FournisseurLivreProvided {
     public int save(@RequestBody FournisseurLivre fournisseurLivre) {
         return fournisseurLivreService.save(fournisseurLivre);
     }
+
+    @PutMapping("/")
+    public int update(@RequestBody FournisseurLivre fournisseurLivre) {
+        return fournisseurLivreService.update(fournisseurLivre);
+    }
 }

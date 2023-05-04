@@ -4,10 +4,6 @@ import com.example.gestionbibliotheque.bean.CategorieCours;
 import com.example.gestionbibliotheque.dao.CategorieCoursDao;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -22,7 +18,7 @@ public class CategorieCoursService {
         return categorieCoursDao.findByReference(reference);
     }
 
-    public List<CategorieCours> findByNom(String nom) {
+    public CategorieCours findByNom(String nom) {
         return categorieCoursDao.findByNom(nom);
     }
 
@@ -49,4 +45,19 @@ public class CategorieCoursService {
         }
 
     }
+
+    public int update(CategorieCours categorieCours){
+        CategorieCours categorieCours1 = findByReference(categorieCours.getReference());
+        if (categorieCours1 != null){
+            if (categorieCours.getNom() != null) {
+                categorieCours1.setNom(categorieCours.getNom());
+            }
+            categorieCoursDao.save(categorieCours1);
+            return 1;
+        } else {
+            categorieCoursDao.save(categorieCours);
+            return 2;
+        }
+    }
+
 }

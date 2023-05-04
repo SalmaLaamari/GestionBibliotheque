@@ -35,4 +35,9 @@ public class PaiementProvided {
     public int save(@RequestBody Paiement paiement) {
         return paiementService.save(paiement);
     }
+
+    @PutMapping("/")
+    public int update(@RequestBody Paiement paiement) {
+        return paiementService.update(paiement);
     }
+}

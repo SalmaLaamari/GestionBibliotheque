@@ -54,4 +54,8 @@ public class UtilisateurProvided {
     public int loginUser(@PathVariable String email,@PathVariable String password) {
         return utilisateurService.loginUser(email, password);
     }
+    @PutMapping("/")
+    public int update(@RequestBody Utilisateur utilisateur) {
+        return utilisateurService.update(utilisateur);
+    }
 }

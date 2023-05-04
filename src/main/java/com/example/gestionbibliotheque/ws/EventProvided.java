@@ -26,6 +26,21 @@ public class EventProvided {
     public List<Event> findByDateEvent(@PathVariable LocalDateTime date) {
         return eventService.findByDateEvent(date);
     }
+    @GetMapping("/nom/{nom}")
+    public List<Event> findByCategorieEventNom(@PathVariable String nom) {
+        return eventService.findByCategorieEventNom(nom);
+    }
+
+    @GetMapping("/titre/{titre}")
+    public Event findByTitre(@PathVariable String titre) {
+        return eventService.findByTitre(titre);
+    }
+
+    @Transactional
+    @DeleteMapping("/titre/{titre}")
+    public int deleteByTitre(@PathVariable String titre) {
+        return eventService.deleteByTitre(titre);
+    }
 
     @Transactional
     @DeleteMapping("/reference/{reference}")
@@ -39,5 +54,10 @@ public class EventProvided {
     @GetMapping("/")
     public List<Event> findAll() {
         return eventService.findAll();
+    }
+
+    @PutMapping("/")
+    public int update(@RequestBody Event event) {
+        return eventService.update(event);
     }
 }

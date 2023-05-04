@@ -51,4 +51,9 @@ public class FactureProvided {
     public int save(@RequestBody Facture facture) {
         return factureService.save(facture);
     }
+
+    @PutMapping("/")
+    public int update(@RequestBody Facture facture) {
+        return factureService.update(facture);
+    }
 }

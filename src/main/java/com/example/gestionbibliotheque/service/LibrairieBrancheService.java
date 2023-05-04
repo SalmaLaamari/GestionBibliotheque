@@ -49,4 +49,28 @@ public class LibrairieBrancheService {
 
         }
     }
+
+    public int update(LibrairieBranche librairieBranche){
+        LibrairieBranche librairieBranche1 = findByReference(librairieBranche.getReference());
+        if (librairieBranche1 != null){
+            if (librairieBranche.getName() != null) {
+                librairieBranche1.setName(librairieBranche.getName());
+            }
+            if (librairieBranche.getEmail() != null) {
+                librairieBranche1.setEmail(librairieBranche.getEmail());
+            }
+            if (librairieBranche.getDescription() != null) {
+                librairieBranche1.setDescription(librairieBranche.getDescription());
+            }
+            if (librairieBranche.getLibrairie() != null) {
+                librairieBranche1.setLibrairie(librairieBranche.getLibrairie());
+            }
+            librairieBrancheDao.save(librairieBranche1);
+            return 1;
+        } else {
+            librairieBrancheDao.save(librairieBranche);
+            return 2;
+        }
+    }
+
 }

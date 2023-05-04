@@ -17,8 +17,9 @@ public class CategorieCoursProvided {
     public CategorieCours findByReference(@PathVariable String reference) {
         return categorieCoursService.findByReference(reference);
     }
+
     @GetMapping("/nom/{nom}")
-    public List<CategorieCours> findByNom(@PathVariable String nom) {
+    public CategorieCours findByNom(@PathVariable String nom) {
         return categorieCoursService.findByNom(nom);
     }
 
@@ -32,12 +33,17 @@ public class CategorieCoursProvided {
     public int deleteByNom(@PathVariable String nom) {
         return categorieCoursService.deleteByNom(nom);
     }
-   @GetMapping("/")
+    @GetMapping("/")
     public List<CategorieCours> findAll() {
         return categorieCoursService.findAll();
     }
     @PostMapping("/")
     public int save(@RequestBody CategorieCours categorieCours) {
         return categorieCoursService.save(categorieCours);
+    }
+
+    @PutMapping("/")
+    public int update(@RequestBody CategorieCours categorieCours) {
+        return categorieCoursService.update(categorieCours);
     }
 }

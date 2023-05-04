@@ -31,4 +31,9 @@ public class StockProvided {
     public int save(@RequestBody Stock stock) {
         return stockService.save(stock);
     }
+
+    @PutMapping("/")
+    public int update(@RequestBody Stock stock) {
+        return stockService.update(stock);
+    }
 }
