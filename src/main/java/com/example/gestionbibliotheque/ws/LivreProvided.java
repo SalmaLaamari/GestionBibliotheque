@@ -26,10 +26,11 @@ public class LivreProvided {
     public Livre findByTitre(@PathVariable String titre) {
         return livreService.findByTitre(titre);
     }
-    @GetMapping("/Branche/{branche}")
-    public List<Livre> findByBranche(@PathVariable String branche) {
-        return livreService.findByBranche(branche);
+    @GetMapping("/categorie/{categorie}")
+    public List<Livre> findByCategorie(@PathVariable String categorie) {
+        return livreService.findByCategorie(categorie);
     }
+
     @GetMapping("/FournisseurLivreReference/{reference}")
     public List<Livre> findByFournisseurLivreReference(@PathVariable String reference) {
         return livreService.findByFournisseurLivreReference(reference);
@@ -55,4 +56,9 @@ public class LivreProvided {
     public int save(@RequestBody Livre livre) {
         return livreService.save(livre);
     }
+
+    @PutMapping("/")
+    public int update(@RequestBody Livre livre) {
+        return livreService.update(livre);
     }
+}

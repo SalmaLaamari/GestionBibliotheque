@@ -36,4 +36,9 @@ public class FicheReservationProvided {
     public int save(@RequestBody FicheReservation ficheReservation) {
         return ficheReservationService.save(ficheReservation);
     }
+
+    @PutMapping("/")
+    public int update(@RequestBody FicheReservation ficheReservation) {
+        return ficheReservationService.update(ficheReservation);
+    }
 }

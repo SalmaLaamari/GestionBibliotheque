@@ -49,4 +49,28 @@ public class LibrairieBrancheService {
 
         }
     }
+
+    public int update(LibrairieBranche branche){
+        LibrairieBranche branche1 = findByReference(branche.getReference());
+        if (branche1 != null){
+            if (branche.getName() != null) {
+                branche1.setName(branche.getName());
+            }
+            if (branche.getEmail() != null) {
+                branche1.setEmail(branche.getEmail());
+            }
+            if (branche.getDescription() != null) {
+                branche1.setDescription(branche.getDescription());
+            }
+            if (branche.getLibrairie() != null) {
+                branche1.setLibrairie(branche.getLibrairie());
+            }
+            librairieBrancheDao.save(branche1);
+            return 1;
+        } else {
+            librairieBrancheDao.save(branche);
+            return 2;
+        }
+    }
+
 }

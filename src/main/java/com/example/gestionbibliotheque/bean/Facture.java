@@ -66,4 +66,5 @@ public class Facture {
     public void setPaiement(Paiement paiement) {
         this.paiement = paiement;
     }
+
 }

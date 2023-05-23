@@ -1,5 +1,7 @@
 package com.example.gestionbibliotheque.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -12,9 +14,12 @@ public class Livre {
     private String reference;
     private String auteur;
     private String titre;
-    private String branche;
     private Boolean availabilityStatus;
     private String imagesrc;
+    private String categorie;
+    private int NbrEmpreintes;
+    private String lien;
+    private String langue;
 
     @ManyToOne
     private FournisseurLivre fournisseurLivre;
@@ -27,9 +32,9 @@ public class Livre {
 
     @ManyToOne
     private Reception reception;
+
     @ManyToOne
     private Utilisateur utilisateur;
-
     private LocalDateTime datePublication;
 
     public Utilisateur getUtilisateur() {
@@ -70,14 +75,6 @@ public class Livre {
 
     public void setTitre(String titre) {
         this.titre = titre;
-    }
-
-    public String getBranche() {
-        return branche;
-    }
-
-    public void setBranche(String branche) {
-        this.branche = branche;
     }
 
     public Boolean getAvailabilityStatus() {
@@ -135,4 +132,37 @@ public class Livre {
     public void setImagesrc(String imagesrc) {
         this.imagesrc = imagesrc;
     }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
+    public int getNbrEmpreintes() {
+        return NbrEmpreintes;
+    }
+
+    public void setNbrEmpreintes(int nbrEmpreintes) {
+        NbrEmpreintes = nbrEmpreintes;
+    }
+
+    public String getLangue() {
+        return langue;
+    }
+
+    public void setLangue(String langue) {
+        this.langue = langue;
+    }
+
+    public String getLien() {
+        return lien;
+    }
+
+    public void setLien(String lien) {
+        this.lien = lien;
+    }
+
 }

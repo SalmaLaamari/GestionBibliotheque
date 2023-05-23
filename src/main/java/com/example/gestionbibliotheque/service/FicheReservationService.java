@@ -43,4 +43,21 @@ public class FicheReservationService {
 
 
     }
+    public int update(FicheReservation ficheReservation) {
+        FicheReservation ficheReservation1 = findByReference(ficheReservation.getReference());
+        if (ficheReservation1 != null) {
+            if (ficheReservation.getDateReservation() != null) {
+                ficheReservation1.setDateReservation(ficheReservation.getDateReservation());
+            }
+            if (ficheReservation.getUtilisateur() != null) {
+                ficheReservation1.setUtilisateur(ficheReservation.getUtilisateur());
+            }
+            ficheReservationDao.save(ficheReservation1);
+            return 1;
+        } else {
+            ficheReservationDao.save(ficheReservation);
+            return 2;
+        }
+    }
+
 }

@@ -1,8 +1,11 @@
 package com.example.gestionbibliotheque.dao;
 
 import com.example.gestionbibliotheque.bean.FournisseurLivre;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface FournisseurLivreDao extends JpaRepository<FournisseurLivre,Long> {
@@ -13,5 +16,4 @@ public interface FournisseurLivreDao extends JpaRepository<FournisseurLivre,Long
     FournisseurLivre findByAdresse(String adresse);
     FournisseurLivre findByTelephone(String telephone);
     int deleteByReference(String reference);
-
 }

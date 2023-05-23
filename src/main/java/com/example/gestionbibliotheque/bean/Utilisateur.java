@@ -20,7 +20,9 @@ public class Utilisateur {
     private String role;
     private String cin;
     private String reference;
-
+    private String mail;
+    private int codeApogee;
+    private String codeMassar;
     public Long getId() {
         return id;
     }
@@ -91,5 +93,29 @@ public class Utilisateur {
 
     public void setCin(String cin) {
         this.cin = cin;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public int getCodeApogee() {
+        return codeApogee;
+    }
+
+    public void setCodeApogee(int codeApogee) {
+        this.codeApogee = codeApogee;
+    }
+
+    public String getCodeMassar() {
+        return codeMassar;
+    }
+
+    public void setCodeMassar(String codeMassar) {
+        this.codeMassar = codeMassar;
     }
 }

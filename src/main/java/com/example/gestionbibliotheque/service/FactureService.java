@@ -58,4 +58,27 @@ public class FactureService {
         }
 
     }
+    public int update(Facture facture){
+        Facture facture1 = findByReference(facture.getReference());
+        if (facture1 != null){
+            if (facture.getTotal() != 0) {
+                facture1.setTotal(facture.getTotal());
+            }
+            if (facture.getDateFacture() != null) {
+                facture1.setDateFacture(facture.getDateFacture());
+            }
+            if (facture.getFournisseurLivre() != null) {
+                facture1.setFournisseurLivre(facture.getFournisseurLivre());
+            }
+            if (facture.getPaiement() != null) {
+                facture1.setPaiement(facture.getPaiement());
+            }
+            factureDao.save(facture1);
+            return 1;
+        } else {
+            factureDao.save(facture);
+            return 2;
+        }
+    }
+
 }

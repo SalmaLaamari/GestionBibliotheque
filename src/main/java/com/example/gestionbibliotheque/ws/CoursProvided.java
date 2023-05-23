@@ -5,8 +5,7 @@ import com.example.gestionbibliotheque.service.CoursService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("GestionBiblio/Cours")
@@ -20,6 +19,11 @@ public class CoursProvided {
     @GetMapping("/lien/{lien}")
     public Cours findByLien(@PathVariable String lien) {
         return coursService.findByLien(lien);
+    }
+
+    @GetMapping("/categorie/{categorie}")
+    public List<Cours> findByCategorie(@PathVariable String categorie) {
+        return coursService.findByCategorie(categorie);
     }
 
     @GetMapping("/source/{source}")
@@ -37,12 +41,26 @@ public class CoursProvided {
     public int deleteByReference(@PathVariable String reference) {
         return coursService.deleteByReference(reference);
     }
-   @GetMapping("/")
+    @GetMapping("/")
     public List<Cours> findAll() {
         return coursService.findAll();
+    }
+    @GetMapping("/id/{id}")
+    public Optional<Cours> findById(@PathVariable Long id) {
+        return coursService.findById(id);
+    }
+
+    @GetMapping("/titre/{titre}")
+    public Cours findByTitre(@PathVariable String titre) {
+        return coursService.findByTitre(titre);
     }
     @PostMapping("/")
     public int save(@RequestBody Cours cours) {
         return coursService.save(cours);
+    }
+
+    @PutMapping("/")
+    public int update(@RequestBody Cours cours) {
+        return coursService.update(cours);
     }
 }

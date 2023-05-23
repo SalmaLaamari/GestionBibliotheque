@@ -39,4 +39,8 @@ public class LibraireBrancheProvided {
     public int save(@RequestBody LibrairieBranche librairieBranche) {
         return librairieBrancheService.save(librairieBranche);
     }
+    @PutMapping("/")
+    public int update(@RequestBody LibrairieBranche branche) {
+        return librairieBrancheService.update(branche);
+    }
 }

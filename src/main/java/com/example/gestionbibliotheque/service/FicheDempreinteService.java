@@ -44,4 +44,22 @@ public class FicheDempreinteService {
             return 1;
 
     }
+
+    public int update(FicheEmpreinte ficheEmpreinte){
+        FicheEmpreinte ficheEmpreinte1 = findByReference(ficheEmpreinte.getReference());
+        if (ficheEmpreinte1 != null){
+            if (ficheEmpreinte.getDateRetour() != null) {
+                ficheEmpreinte1.setDateRetour(ficheEmpreinte.getDateRetour());
+            }
+            if (ficheEmpreinte.getUtilisateur() != null) {
+                ficheEmpreinte1.setUtilisateur(ficheEmpreinte.getUtilisateur());
+            }
+            ficheDempreinteDao.save(ficheEmpreinte1);
+            return 1;
+        } else {
+            ficheDempreinteDao.save(ficheEmpreinte);
+            return 2;
+        }
+    }
+
 }

@@ -10,6 +10,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalDateTime dateReservation;
+    private LocalDateTime dateRetour;
     private String reference;
     @ManyToOne
     private Livre livre;
@@ -55,5 +56,12 @@ public class Reservation {
 
     public void setReference(String reference) {
         this.reference = reference;
+    }
+    public LocalDateTime getDateRetour() {
+        return dateRetour;
+    }
+
+    public void setDateRetour(LocalDateTime dateRetour) {
+        this.dateRetour = dateRetour;
     }
 }

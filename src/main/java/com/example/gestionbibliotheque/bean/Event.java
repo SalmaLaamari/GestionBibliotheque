@@ -12,10 +12,12 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    private String titre;
     private String reference;
     private String description;
     private LocalDateTime dateEvent;
     private String imageEvent;
+    private String categorie;
 
     public long getId() {
         return id;
@@ -55,5 +57,21 @@ public class Event {
 
     public void setImageEvent(String imageEvent) {
         this.imageEvent = imageEvent;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
     }
 }

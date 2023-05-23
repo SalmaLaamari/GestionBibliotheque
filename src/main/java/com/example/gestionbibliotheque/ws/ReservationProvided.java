@@ -31,6 +31,16 @@ public class ReservationProvided {
     public Reservation findByUtilisateurReference(@PathVariable String reference) {
         return reservationService.findByUtilisateurReference(reference);
     }
+
+    @GetMapping("/UtilisateurCin/{cin}")
+    public Reservation findByUtilisateurCin(@PathVariable String cin) {
+        return reservationService.findByUtilisateurCin(cin);
+    }
+    @GetMapping("/Cin/{cin}/Titre/{titre}")
+    public Reservation findByUtilisateurCinAndLivreTitre(@PathVariable String cin,@PathVariable String titre) {
+        return reservationService.findByUtilisateurCinAndLivreTitre(cin, titre);
+    }
+
     @DeleteMapping("/Reference/{reference}")
     @Transactional
     public int deleteByReference(@PathVariable String reference) {
@@ -51,7 +61,13 @@ public class ReservationProvided {
         return reservationService.findAll();
     }
     @PostMapping("/")
+    @Transactional
     public int save(@RequestBody Reservation reservation) {
         return reservationService.save(reservation);
+    }
+
+    @PutMapping("/")
+    public int update(@RequestBody Reservation reservation) {
+        return reservationService.update(reservation);
     }
 }

@@ -56,4 +56,31 @@ public class FournisseurLivreService {
         }
 
     }
+
+    public int update(FournisseurLivre fournisseurLivre){
+        FournisseurLivre fournisseurLivre1 = findByReference(fournisseurLivre.getReference());
+        if (fournisseurLivre1 != null){
+            if (fournisseurLivre.getNom() != null) {
+                fournisseurLivre1.setNom(fournisseurLivre.getNom());
+            }
+            if (fournisseurLivre.getPrenom() != null) {
+                fournisseurLivre1.setPrenom(fournisseurLivre.getPrenom());
+            }
+            if (fournisseurLivre.getEmail() != null) {
+                fournisseurLivre1.setEmail(fournisseurLivre.getEmail());
+            }
+            if (fournisseurLivre.getAdresse() != null) {
+                fournisseurLivre1.setAdresse(fournisseurLivre.getAdresse());
+            }
+            if (fournisseurLivre.getTelephone() != null) {
+                fournisseurLivre1.setTelephone(fournisseurLivre.getTelephone());
+            }
+            fournisseurLivreDao.save(fournisseurLivre1);
+            return 1;
+        } else {
+            fournisseurLivreDao.save(fournisseurLivre);
+            return 2;
+        }
+    }
+
 }
