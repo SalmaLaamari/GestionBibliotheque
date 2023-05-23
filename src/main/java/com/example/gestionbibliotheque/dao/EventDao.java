@@ -16,7 +16,5 @@ public interface EventDao extends JpaRepository<Event,Long> {
     List<Event> findByCategorie(String categorie);
 
     List<Event> findByDateEvent(LocalDateTime date);
-    List<Event> findByCategorieEventNom(String nom);
     int deleteByReference(String reference);
-    int deleteByTitre(String titre);
 }
