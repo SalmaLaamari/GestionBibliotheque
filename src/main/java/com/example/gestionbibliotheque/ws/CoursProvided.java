@@ -35,7 +35,6 @@ public class CoursProvided {
     public Cours findByDescription(@PathVariable String description) {
         return coursService.findByDescription(description);
     }
-
     @Transactional
     @DeleteMapping("/reference/{reference}")
     public int deleteByReference(@PathVariable String reference) {

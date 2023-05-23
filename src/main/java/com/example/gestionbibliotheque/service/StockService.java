@@ -42,7 +42,7 @@ public class StockService {
     public int update(Stock stock) {
         Stock stock1 = findByReference(stock.getReference());
         if (stock1 != null) {
-            if (stock.getQuantite() != null) {
+            if (stock.getQuantite() != 0) {
                 stock1.setQuantite(stock.getQuantite());
             }
             if (stock.getCapacite() != null) {

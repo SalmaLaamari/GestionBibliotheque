@@ -7,11 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ReservationDao extends JpaRepository<Reservation,Long> {
-    Reservation findByReference(String reference);
     List<Reservation> findByDateReservation(LocalDateTime date);
+    Reservation findByReference(String reference);
     Reservation findByLivreReference(String reference);
     Reservation findByUtilisateurReference(String reference);
     Reservation findByUtilisateurCin(String cin);

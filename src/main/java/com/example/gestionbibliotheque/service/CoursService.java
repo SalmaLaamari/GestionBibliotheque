@@ -39,6 +39,7 @@ public class CoursService {
         return coursDao.findByCategorie(categorie);
     }
 
+
     public Cours findByDescription(String description) {
         return coursDao.findByDescription(description);
     }
@@ -69,9 +70,11 @@ public class CoursService {
     public int update(Cours cours){
         Cours cours1 = findByReference(cours.getReference());
         if (cours1 != null){
+
             if (cours.getTitre() != null) {
                 cours1.setTitre(cours.getTitre());
             }
+
             if (cours.getLien() != null) {
                 cours1.setLien(cours.getLien());
             }
@@ -84,6 +87,7 @@ public class CoursService {
             if (cours.getImageCour() != null) {
                 cours1.setImageCour(cours.getImageCour());
             }
+
             if (cours.getCategorie() != null) {
                 cours1.setCategorie(cours.getCategorie());
             }
